@@ -31,3 +31,27 @@ function highlightLinks() {
 }
 
 highlightLinksButton.addEventListener("click", highlightLinks);
+
+
+const userData = {
+    name: "Max",
+    lastname: "Schwarzmüller",
+    age: 32
+};
+
+const displayUserDataButton = document.querySelector("#user-data button");
+
+function displayUserData() {
+    const outputData = document.getElementById("output-user-data");
+
+    outputData.innerHTML = "";
+
+    for (const key in userData) {
+        const newUserDataList = document.createElement("li");
+        const outputText = key.toUpperCase() + ":" + userData[key];
+        newUserDataList.textContent = outputText;
+        outputData.append(newUserDataList);
+    }
+}
+
+displayUserDataButton.addEventListener("click", displayUserData);
