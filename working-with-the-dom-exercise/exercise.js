@@ -5,7 +5,7 @@
 //    - Select the second button by using an "id"
 
 const firstButton = document.querySelector("button");
-const secondButton = document.querySelector("button:nth-of-type(2)");
+const secondButton = document.getElementById("second-btn");
 
 // 2) Add "click" event listener to both buttons (with two different functions).
 //    The functions should "console.dir()" the clicked buttons.
@@ -17,8 +17,7 @@ function firstButtonClicked() {
 }
 
 function secondButtonClicked(event) {
-    event = document.querySelector("button:nth-of-type(2)");
-    console.dir(event);
+    console.dir(event.target);
 }
 
 firstButton.addEventListener("click", firstButtonClicked);
