@@ -1,11 +1,11 @@
-let inputElement = document.getElementById("product-name");
-let remainingChars = document.getElementById("remaining-chars");
-let charCount = inputElement.maxLength;
+const inputElement = document.getElementById("product-name");
+const remainingChars = document.getElementById("remaining-chars");
+const charCount = inputElement.maxLength;
 
 function charCounter(event) {
-    let enteredText = event.target.value;
-    let enteredTextLength = enteredText.length;
-    let counting = charCount - enteredTextLength;
+    const enteredText = event.target.value;
+    const enteredTextLength = enteredText.length;
+    const counting = charCount - enteredTextLength;
 
     remainingChars.textContent = counting;
 }
