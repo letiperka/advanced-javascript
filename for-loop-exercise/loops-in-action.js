@@ -1,3 +1,5 @@
+// Calculate sum of a number
+
 const calculateSumButton = document.querySelector("#calculator button");
 
 function calculateSum() {
@@ -19,6 +21,7 @@ function calculateSum() {
 
 calculateSumButton.addEventListener("click", calculateSum);
 
+// Highlight all links
 
 const highlightLinksButton = document.querySelector("#highlight-links button");
 
@@ -32,6 +35,7 @@ function highlightLinks() {
 
 highlightLinksButton.addEventListener("click", highlightLinks);
 
+// Display user data
 
 const userData = {
     name: "Max",
@@ -55,3 +59,43 @@ function displayUserData() {
 }
 
 displayUserDataButton.addEventListener("click", displayUserData);
+
+// Roll the dice
+
+const rollDiceButton = document.querySelector("#statistics button");
+
+function rollDice() {
+    return Math.floor(Math.random() * 6) + 1;
+}
+
+function deriveNumberOfDiceRolls() {
+    const targetNumber = document.getElementById("user-target-number");
+    const enteredNumber = targetNumber.value;
+    const diceRollsList = document.getElementById("dice-rolls");
+    diceRollsList.innerHTML = "";
+
+    let hasRolledTargetNumber = false;
+    let numberOfRolls = 0;
+
+    while (!hasRolledTargetNumber) {
+        const rolledNumber = rollDice();
+        // if (rolledNumber == enteredNumber) {
+        //     hasRolledTargetNumber = true;
+        // }
+        numberOfRolls++;
+        const newRollList = document.createElement("li");
+        const outputText = "Roll" + numberOfRolls + ": " + rolledNumber;
+        newRollList.textContent = outputText;
+        diceRollsList.append(newRollList);
+        hasRolledTargetNumber = rolledNumber == enteredNumber;
+    }
+
+    const outputTotalRolls = document.getElementById("output-total-rolls");
+
+    const outputTargetNumber = document.getElementById("output-target-number");
+
+    outputTargetNumber.textContent = enteredNumber;
+    outputTotalRolls.textContent = numberOfRolls;
+}
+
+rollDiceButton.addEventListener("click", deriveNumberOfDiceRolls);
