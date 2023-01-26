@@ -84,14 +84,13 @@ function deriveNumberOfDiceRolls() {
         // }
         numberOfRolls++;
         const newRollList = document.createElement("li");
-        const outputText = "Roll" + numberOfRolls + ": " + rolledNumber;
+        const outputText = "Roll " + numberOfRolls + ": " + rolledNumber;
         newRollList.textContent = outputText;
         diceRollsList.append(newRollList);
         hasRolledTargetNumber = rolledNumber == enteredNumber;
     }
 
     const outputTotalRolls = document.getElementById("output-total-rolls");
-
     const outputTargetNumber = document.getElementById("output-target-number");
 
     outputTargetNumber.textContent = enteredNumber;
