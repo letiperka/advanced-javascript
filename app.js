@@ -8,6 +8,22 @@ function charCounter(event) {
     const counting = charCount - enteredTextLength;
 
     remainingChars.textContent = counting;
+
+    if (counting === 0) {
+        remainingChars.classList.add("error");
+        inputElement.classList.add("error");
+    } 
+    else if (counting <= 10) {
+        remainingChars.classList.add("warning");
+        inputElement.classList.add("warning");
+
+        remainingChars.classList.remove("error");
+        inputElement.classList.remove("error");
+    } 
+    else { remainingChars.classList.remove("warning");
+    inputElement.classList.remove("warning");
+    }
 }
 
 inputElement.addEventListener("input", charCounter);
+
